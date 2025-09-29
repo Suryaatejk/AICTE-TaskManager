@@ -3,7 +3,7 @@
 A modern, feature-rich task management application built with vanilla HTML, CSS, and JavaScript.
 
 ## 🚀 Live Demo
-./[Image.png]
+![Task Manager Preview](Image.png)
 
 **[Try it now!](https://suryaatejk.github.io/AICTE-TaskManager)**
 
