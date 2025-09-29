@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Task Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-tasks"></i> Task Manager Pro</h1>
+      <div id="progress-container">
+        <div class="progress-info">
+          <span id="task-stats">0 of 0 tasks completed</span>
+          <div class="progress-wrapper">
+            <progress id="progress-bar" value="0" max="100"></progress>
+            <span id="progress-percent">0%</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="controls">
+      <div class="filter-controls">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pending">Pending</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+      <div class="sort-controls">
+        <select id="sort-select">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="alphabetical">A-Z</option>
+          <option value="priority">Priority</option>
+        </select>
+      </div>
+    </div>
+
+    <main>
+      <form id="task-form">
+        <div class="form-row">
+          <input type="text" id="task-input" placeholder="Add new task..." autocomplete="off" required />
+          <select id="priority-select">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+          <input type="date" id="due-date" />
+          <button type="submit">
+            <i class="fas fa-plus"></i> Add Task
+          </button>
+        </div>
+      </form>
+
+      <div class="bulk-actions">
+        <button id="select-all">Select All</button>
+        <button id="clear-completed">Clear Completed</button>
+        <button id="export-tasks">Export Tasks</button>
+        <button id="import-tasks">Import Tasks</button>
+        <input type="file" id="import-file" accept=".json" style="display: none;">
+      </div>
+
+      <ul id="task-list"></ul>
+
+      <div id="empty-state" class="empty-state" style="display: none;">
+        <i class="fas fa-clipboard-list"></i>
+        <h3>No tasks yet</h3>
+        <p>Add your first task to get started!</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Task Edit Modal -->
+  <div id="task-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Edit Task</h2>
+      <form id="modal-form">
+        <input type="text" id="modal-task-input" placeholder="Task description" required>
+        <select id="modal-priority">
+          <option value="low">Low Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
+        <input type="date" id="modal-due-date">
+        <textarea id="modal-notes" placeholder="Add notes..."></textarea>
+        <div class="modal-actions">
+          <button type="submit">Update Task</button>
+          <button type="button" class="cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
